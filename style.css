@@ -1,9 +1,19 @@
+.container {
+    padding-top: 20px;
+    width: 460px;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: gray;
+}
 .grid {
+    margin-left: 20px;
     height: 420px;
     width: 420px;
     display: flex;
     flex-wrap: wrap;
-    background-color: grey;
+    background-color: lightgrey;
 }
 .grid div {
     height: 40px;
@@ -15,4 +25,22 @@
 }
 .checked {
     background-color: red;
+}
+#restartBtn {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 250px;
+    height: 80px;   
+}
+.scoreDiv {
+   
+    width: 140px;
+    height: 70px;
+    border: 5px groove grey;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    background-color: green;
+    
+    
 }
