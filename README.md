@@ -13,7 +13,9 @@
   # Installation
   
   # Usage
-  [Link To Website](https://diuguide.github.io/arcade/)
+  Simple minesweeper game, there are 20 mines, you can place a flag with a right click, or check to see if its a bomb with left click.  The game is over when the user flags all of the mines.  The numbers in checked boxes indicate how many bombs are in the adjacent area to the checked box.
+
+  [Link to the Arcade](https://diuguide.github.io/arcade/)
   # Tests
   
   # License
