@@ -34,7 +34,7 @@
     border: 1px solid black;
 }
 .bomb {
-    background-color: lightgrey;
+    background-color: orange;
 }
 .checked {
     background-color: red;
@@ -64,4 +64,12 @@
     margin-left: 18px;
     font-size: 63px;
     font-weight: 800;
+}
+.youWon {
+    font-size: 100px;
+    text-align: center;
+}
+.youLost {
+    font-size: 100px;
+    text-align: center;
 }

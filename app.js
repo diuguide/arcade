@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     const resetBtn = $('#restartBtn')
     const scoreboard = $('.scoreDiv')
-    const gridDiv = $('.grid')
-    const gameOver = $('.gameOver')
-    const youWon = $('.youWon')
-    const youLost = $('youLost')
+    const gameOverDiv = $('.gameOver')
+    const youWonDiv = $('.youWon')
+    const youLostDiv = $('.youLost')
     let flags = 0
     let width = 10
     let squares = []
@@ -75,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     square.innerHTML = '🚩'
                     flags++
                     scoreboard.append(flags)
-                    console.log(flags)
                     checkForWin()
                 } else {
                     square.classList.remove('flag')
@@ -154,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10)
         }
         function gameOver(square) {
+
             console.log('Boom!, Game Over')
             isGameOver = true
             squares.forEach(square => {
@@ -172,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 if (matches === bombAmount) {
                     console.log('YOU WIN')
-
+                    youWin()
                     isGameOver = true
                 }
 
@@ -181,6 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+    }
+    function youWin() {
+        grid.style.display = "none";
+        scoreboard.hide()
+        gameOverDiv.show()
+        youWonDiv.show()
+        resetBtn.css('margin-left', '105px')
     }
     beginProgram()
 })
