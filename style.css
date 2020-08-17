@@ -34,7 +34,7 @@
     border: 1px solid black;
 }
 .bomb {
-    background-color: orange;
+    background-color: lightgray;
 }
 .checked {
     background-color: red;
