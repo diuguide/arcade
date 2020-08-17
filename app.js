@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
+    const resetBtn = $('#restartBtn')
     let flags = 0
     let width = 10
     let squares = []
     let bombAmount = 20
     let isGameOver = false
+    let scoreboard = $('.scoreDiv')
+
+    function beginProgram() {
+        
+
+
     function createBoard() {
         const bombsArray = Array(bombAmount).fill('bomb')
         const emptyArray = Array(width * width - bombAmount).fill('valid')
@@ -26,10 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault()
                 addFlag(square)
             }
+            resetBtn.on('click', () => { location.reload() })
         }
 
         for (let i = 0; i < squares.length; i++) {
             let total = 0
+
+
             const isLeftEdge = (i % width === 0)
             const isRightEdge = (i % width === width - 1)
 
@@ -49,13 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createBoard()
 
+
     function addFlag(square) {
+        scoreboard.empty()
         if (isGameOver) return
         if (!square.classList.contains('checked') && (flags < bombAmount)) {
             if (!square.classList.contains('flag')) {
                 square.classList.add('flag')
                 square.innerHTML = 'o'
                 flags++
+                scoreboard.append(flags)
+                console.log(flags)
                 checkForWin()
             } else {
                 square.classList.remove('flag')
@@ -145,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkForWin() {
         let matches = 0
 
+
         for (let i = 0; i < squares.length; i++) {
             if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
                 matches++
@@ -153,10 +168,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('YOU WIN')
                 isGameOver = true
             }
+
         }
     }
 
 
 
-
+}
+beginProgram()
 })
+

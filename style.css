@@ -33,12 +33,14 @@
     border: 1px solid black;
 }
 .bomb {
-    background-color: lightgrey;
+    background-color: orange;
 }
 .checked {
     background-color: red;
 }
 #restartBtn {
+    font-size: 60px;
+    font-family: 'Russo One', sans-serif;
     margin-top: 20px;
     margin-left: 20px;
     width: 250px;
@@ -46,13 +48,14 @@
     border: 5px groove grey;   
 }
 .scoreDiv {
-   
+   font-size: 58px;
     width: 140px;
     height: 70px;
     border: 5px groove grey;
     float: right;
     margin-top: 20px;
     margin-right: 20px;
+    padding-left: 2px;
     background-color: green;
 }
 .title {
