@@ -19,7 +19,8 @@
     background-color: gray;
 }
 .grid {
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
     height: 420px;
     width: 420px;
     display: flex;
@@ -42,14 +43,14 @@
     font-size: 60px;
     font-family: 'Russo One', sans-serif;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 15px;;
     width: 250px;
     height: 80px;
     border: 5px groove grey;   
 }
 .scoreDiv {
    font-size: 58px;
-    width: 140px;
+    width: 67px;
     height: 70px;
     border: 5px groove grey;
     float: right;
