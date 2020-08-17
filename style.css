@@ -34,7 +34,7 @@
     border: 1px solid black;
 }
 .bomb {
-    background-color: orange;
+    background-color: lightgrey;
 }
 .checked {
     background-color: red;
@@ -50,7 +50,7 @@
 }
 .scoreDiv {
    font-size: 58px;
-    width: 67px;
+    width: 75px;
     height: 70px;
     border: 5px groove grey;
     float: right;
