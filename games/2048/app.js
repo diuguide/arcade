@@ -33,15 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let totalThree = squares[i + 2].innerHTML
                 let totalFour = squares[i + 3].innerHTML
                 let row = [parseInt(totalOne), parseInt(totalTwo), parseInt(totalThree), parseInt(totalFour)]
-                console.log(row)
 
                 let filteredRow = row.filter(num => num)
-                console.log(filteredRow)
                 let missing = 4 - filteredRow.length
                 let zeros = Array(missing).fill(0)
-                console.log(zeros)
                 let newRow = zeros.concat(filteredRow)
-                console.log(newRow)
 
                 squares[i].innerHTML = newRow[0]
                 squares[i + 1].innerHTML = newRow[1]
@@ -60,15 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let totalThree = squares[i + 2].innerHTML
                 let totalFour = squares[i + 3].innerHTML
                 let row = [parseInt(totalOne), parseInt(totalTwo), parseInt(totalThree), parseInt(totalFour)]
-                console.log(row)
 
                 let filteredRow = row.filter(num => num)
-                console.log(filteredRow)
                 let missing = 4 - filteredRow.length
                 let zeros = Array(missing).fill(0)
-                console.log(zeros)
                 let newRow = filteredRow.concat(zeros)
-                console.log(newRow)
 
                 squares[i].innerHTML = newRow[0]
                 squares[i + 1].innerHTML = newRow[1]
@@ -77,6 +69,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    moveLeft()
+
+    function combineRow() {
+        for (let i = 0; i < 15; i++) {
+            if (squares[i].innerHTML === squares[i + 1].innerHTML) {
+                let combinedTotal = parseInt(squares[i].innerHTML) + parseInt(squares[i + 1].innerHTML)
+                squares[i].innerHTML = combinedTotal
+                squares[i + 1].innerHTML = 0
+            }
+        }
+    }
+    function control(e) {
+        if (e.keyCode === 39) {
+            keyRight()
+        }
+    }
+    document.addEventListener('keyup', control)
+
+    function keyRight() {
+        moveRight()
+        combineRow()
+        moveRight()
+        generate()
+    }
 
 })
