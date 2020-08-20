@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const prince = document.querySelector('.character');
     let bottom = 0
-
+    let gravity = 0.9
 
 
     function jump() {
@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 20)
             }
             bottom += 30
+            bottom = bottom * gravity
+            console.log(bottom)
             prince.style.bottom = bottom + 'px'
         }, 20)
     }
