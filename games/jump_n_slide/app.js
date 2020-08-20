@@ -12,7 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function jump() {
+
         if (isJumping) return
+        prince.classList.add('character')
+        prince.classList.remove('character-slide')
         let timerUpId = setInterval(() => {
             if (bottom > 250) {
                 clearInterval(timerUpId)
@@ -32,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 20)
     }
     function slideLeft() {
+        prince.classList.add('character-slide')
+        prince.classList.remove('character')
         if (isGoingRight) {
             clearInterval(rightTimerId)
             isGoingRight = false
@@ -46,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         prince.style.left = left + 'px'
     }
     function slideRight() {
+        prince.classList.add('character-slide')
+        prince.classList.remove('character')
         if (isGoingLeft) {
             clearInterval(leftTimerId)
             isGoingLeft = false

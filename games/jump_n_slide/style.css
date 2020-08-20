@@ -6,3 +6,10 @@
     position: absolute;
     bottom: 0px;
 }
+.character-slide {
+    background-color: red;
+    height: 40px;
+    width: 70px;
+    position: absolute;
+    bottom: 0px;
+}
