@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let isGoingRight = false
     let right = 0
     let left = 0
+    let rightTimerId
+    let leftTimerId
 
 
     function jump() {
@@ -30,8 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 20)
     }
     function slideLeft() {
+        if (isGoingRight) {
+            clearInterval(rightTimerId)
+            isGoingRight = false
+        }
         isGoingLeft = true
-        let leftTimerId = setInterval(() => {
+        leftTimerId = setInterval(() => {
             left -= 5
             console.log('going left')
             prince.style.left = left + 'px'
@@ -40,8 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
         prince.style.left = left + 'px'
     }
     function slideRight() {
+        if (isGoingLeft) {
+            clearInterval(leftTimerId)
+            isGoingLeft = false
+        }
         isGoingRight = true
-        let rightTimerId = setInterval(() => {
+        rightTimerId = setInterval(() => {
             left += 5
             console.log('going right')
             prince.style.left = left + 'px'
