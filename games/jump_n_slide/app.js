@@ -5,7 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function jump() {
-        let timerId = setInterval(() => {
+        let timerUpId = setInterval(() => {
+
+            if (bottom > 250) {
+                clearInterval(timerUpId)
+                let timerDownId = setInterval(() => {
+                    if(bottom < 0) {
+                        clearInterval(timerDownId)
+                    }
+                    bottom -= 5
+                    prince.style.bottom = bottom + 'px'
+                }, 20)
+            }
             bottom += 30
             prince.style.bottom = bottom + 'px'
         }, 20)
