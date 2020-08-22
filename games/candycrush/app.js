@@ -57,19 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     }
-    function dragEnd() {
 
-
-    }
     function dragDrop() {
         colorBeingReplaced = this.style.backgroundColor
         squareIdBeingReplaced = parseInt(this.id)
         squares[squareIdBeingReplaced].style.backgroundColor = colorBeingDragged
-        console.log('after ' + colorBeingReplaced)
+    }
+    function dragEnd() {
+        let validMoves = [
+            squareIdBeingDragged - 1, 
+            squareIdBeingDragged - width,
+            squareIdBeingDragged + 1,
+            squareIdBeingDragged +width
+        ]
+        let validMove = validMoves.includes(squareIdBeingReplaced)
+
+        if(squaresIdBeingReplaced && validMove) {
+            squareIdBeingReplaced = null
+        } else if (squareIdBeingReplaced && !validMove) {
+            squares[squareIdBeingReplaced].style.backgroundColor = colorBeingReplaced
+            squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
+        } else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
 
 
     }
-
 
 
 
