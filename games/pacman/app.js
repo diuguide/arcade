@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (layout[i] === 0) {
 
             } else if (layout[i] === 1) {
-                squares[i].style.backgroundColor = 'green'
+                squares[i].classList.add('pac-dot')
             } else if (layout[i] === 2) {
-                squares[i].style.backgroundColor = 'black'
+                squares[i].classList.add('wall')
             } else if (layout[i] === 3) {
-                squares[i].style.backgroundColor = 'orange'
+                squares[i].classList.add('power-pellet')
             } else
                 squares[i].style.backgroundColor = 'yellow'
         }
