@@ -72,14 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
         let validMove = validMoves.includes(squareIdBeingReplaced)
 
-        if(squaresIdBeingReplaced && validMove) {
+        if(squareIdBeingReplaced && validMove) {
             squareIdBeingReplaced = null
         } else if (squareIdBeingReplaced && !validMove) {
             squares[squareIdBeingReplaced].style.backgroundColor = colorBeingReplaced
             squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
-        } else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
+        } else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged  
+    }
 
+    function checkRowForThree() {
+        for(let i = 0; i < 61; i++) {
+            let rowOfThree = [i, i +1, i+2, i+3]
+            let decidedColor = squares[i].style.backgroundColor
+            const isBlank = squares[i].style.backgroundColor === ''
 
+            if(rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
+                rowOfThree.forEach(index => {
+                    squares[index].style.backgroundColor = '' 
+                })
+            } 
+        }
     }
 
 
