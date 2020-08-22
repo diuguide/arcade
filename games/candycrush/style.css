@@ -4,7 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    height: 700px;
+    height: 770px;
     width: 700px;
     background-color: rgb(255, 255, 224);
 }
@@ -25,4 +25,8 @@
 .grid div {
     height: 70px;
     width: 70px;
+}
+.title {
+    padding-left: 10px;
+    font-size: 100px;
 }
