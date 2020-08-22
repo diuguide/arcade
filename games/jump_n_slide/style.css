@@ -6,10 +6,12 @@
     border: 1px solid grey;
 }
 .character {
+    
     background-color: red;
     height: 70px;
     width: 40px;
     position: absolute;
+    bottom: 0px;
     margin-left: auto;
     margin-right: auto;
 }

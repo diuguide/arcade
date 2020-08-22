@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const prince = document.querySelector('.character');
-    let bottom = 300
+    let bottom = 0
     let gravity = 0.99
     let parachute = 1.1
     let isJumping = false
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let timerUpId = setInterval(() => {
 
-            if (bottom > 300) {
+            if (bottom > 250) {
 
                 clearInterval(timerUpId)
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             isjumping = true
-            bottom += 1
+            bottom += 100
             bottom = bottom * gravity
             prince.style.bottom = bottom + 'px'
 
