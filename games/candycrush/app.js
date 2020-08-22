@@ -17,13 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
             square.setAttribute('draggable', true)
             square.setAttribute('id', i)
             let randomColor = Math.floor(Math.random() * candyColors.length)
-            console.log(randomColor)
             square.style.backgroundColor = candyColors[randomColor]
             grid.appendChild(square)
             squares.push(square)
         }
     }
     createBoard()
+    let colorBeingDragged
+    let colorBeingReplaced
+    let squareIdBeingDragged
+    let squareIdBeingReplaced
 
     squares.forEach(square => square.addEventListener('dragstart', dragStart))
     squares.forEach(square => square.addEventListener('dragend', dragEnd))
@@ -33,27 +36,37 @@ document.addEventListener('DOMContentLoaded', () => {
     squares.forEach(square => square.addEventListener('drop', dragDrop))
 
     function dragStart() {
-        console.log(this.id, 'dragstart')
+        colorBeingDragged = this.style.backgroundColor
+        console.log('first click ' + colorBeingDragged)
+        squareIdBeingDragged = parseInt(this.id)
+
+
 
     }
-    function dragOver() {
-        console.log(this.id, 'dragover')
+    function dragOver(e) {
+        e.preventDefault()
+
 
     }
-    function dragEnter() {
-        console.log(this.id, 'dragenter')
+    function dragEnter(e) {
+        e.preventDefault()
+
 
     }
     function dragLeave() {
-        console.log(this.id, 'dragleave')
+
 
     }
     function dragEnd() {
-        console.log(this.id, 'dragend')
+
 
     }
     function dragDrop() {
-        console.log(this.id, 'drop')
+        colorBeingReplaced = this.style.backgroundColor
+        squareIdBeingReplaced = parseInt(this.id)
+        squares[squareIdBeingReplaced].style.backgroundColor = colorBeingDragged
+        console.log('after ' + colorBeingReplaced)
+
 
     }
 
