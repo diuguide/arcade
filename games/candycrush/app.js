@@ -112,6 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+    function moveDown() {
+        for (i = 0; i < 55; i++) {
+            if (squares[i + width].style.backgroundColor === '') {
+                squares[i + width].style.backgroundColor = squares[i].style.backgroundColor
+                squares[i].style.backgroundColor = ''
+            }
+        }
+    }
+
+
     function checkRowForFour() {
         for (i = 0; i < 60; i++) {
             let rowOfFour = [i, i + 1, i + 2, i + 3]
@@ -145,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.setInterval(() => {
+        moveDown()
         checkColumnForFour()
         checkRowForFour()
         checkColumnForThree()
