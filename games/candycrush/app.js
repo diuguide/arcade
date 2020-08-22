@@ -65,32 +65,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function dragEnd() {
         let validMoves = [
-            squareIdBeingDragged - 1, 
+            squareIdBeingDragged - 1,
             squareIdBeingDragged - width,
             squareIdBeingDragged + 1,
-            squareIdBeingDragged +width
+            squareIdBeingDragged + width
         ]
         let validMove = validMoves.includes(squareIdBeingReplaced)
 
-        if(squareIdBeingReplaced && validMove) {
+        if (squareIdBeingReplaced && validMove) {
             squareIdBeingReplaced = null
         } else if (squareIdBeingReplaced && !validMove) {
             squares[squareIdBeingReplaced].style.backgroundColor = colorBeingReplaced
             squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
-        } else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged  
+        } else squares[squareIdBeingDragged].style.backgroundColor = colorBeingDragged
     }
 
     function checkRowForThree() {
-        for(let i = 0; i < 61; i++) {
-            let rowOfThree = [i, i +1, i+2, i+3]
+        for (let i = 0; i < 61; i++) {
+            let rowOfThree = [i, i + 1, i + 2, i + 3]
             let decidedColor = squares[i].style.backgroundColor
             const isBlank = squares[i].style.backgroundColor === ''
 
-            if(rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
+            if (rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
                 rowOfThree.forEach(index => {
-                    squares[index].style.backgroundColor = '' 
+                    squares[index].style.backgroundColor = ''
                 })
-            } 
+            }
         }
     }
 
