@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         isJumping = false
                     }
 
-                    bottom -= 35
+                    bottom -= 3
                     bottom = bottom * parachute
                     prince.style.bottom = bottom + 'px'
 
@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             isjumping = true
-            bottom += 40
+            bottom += 1
             bottom = bottom * gravity
             prince.style.bottom = bottom + 'px'
 
-        }, 20)
+        }, 2)
 
         console.log(bottom)
     }
@@ -84,9 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
             left = left * gravity
             console.log('going right')
             prince.style.left = left + 'px'
+            if (bottom < 100) { clearInterval(rightTimerId) }
         }, 20)
+        console.log(bottom)
 
-        // if (bottom <= 0) { clearInterval(rightTimerId) }
 
         left += 5
         prince.style.left = left + 'px'
